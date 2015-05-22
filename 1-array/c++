@@ -1,0 +1,37 @@
+#include<iostream>
+using namespace std;
+
+class findunique
+{
+	int n;
+	public:
+		void get()
+		{
+			cin>>n;
+		}
+		static int find(findunique a[],int n)
+		{
+			
+			int maxsum=a[0].n;
+			for(int i=1; i<n; i++)
+			{				
+				maxsum=maxsum^a[i].n;
+			}
+			return maxsum;
+		}
+};
+int main()
+{
+	int n;
+	findunique *s;
+	cout<<"Enter Number Of Elements";
+	cin>>n;
+	cout<<"Enter Elements\n";
+	s=new findunique[n];
+	for(int i=0; i<n; i++)
+	{
+		s[i].get();
+	}
+	cout<<"\nElements Is   "<<findunique::find(s,n);
+	return 0;
+}
